@@ -1,0 +1,11 @@
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "functions": {
+    "server/signaling-server.js": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  }
+}
