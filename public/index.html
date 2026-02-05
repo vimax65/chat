@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>چت ویدئویی - با سرور واقعی</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-video"></i> چت ویدئویی تحت وب</h1>
+            <p class="subtitle">ارتباط مستقیم ویدئویی و متنی - با سرور واقعی</p>
+        </header>
+        
+        <div class="main-content">
+            <section class="video-section">
+                <h2><i class="fas fa-camera"></i> ویدئو</h2>
+                <div class="video-container">
+                    <div class="video-box">
+                        <video id="localVideo" autoplay muted playsinline></video>
+                        <div class="video-label">شما</div>
+                    </div>
+                    <div class="video-box">
+                        <video id="remoteVideo" autoplay playsinline></video>
+                        <div class="video-label">کاربر مقابل</div>
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <button id="toggleVideo" class="control-btn" title="خاموش/روشن کردن دوربین">
+                        <i class="fas fa-video"></i>
+                    </button>
+                    <button id="toggleAudio" class="control-btn" title="خاموش/روشن کردن میکروفون">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <button id="callButton" class="control-btn call" title="برقراری تماس">
+                        <i class="fas fa-phone"></i>
+                    </button>
+                    <button id="hangupButton" class="control-btn" title="قطع تماس">
+                        <i class="fas fa-phone-slash"></i>
+                    </button>
+                </div>
+            </section>
+            
+            <section class="chat-section">
+                <div class="chat-header">
+                    <h2><i class="fas fa-comments"></i> چت متنی</h2>
+                    <div class="online-status">
+                        <span id="connectionCount">0</span> کاربر آنلاین
+                    </div>
+                </div>
+                
+                <div id="chatMessages" class="chat-messages">
+                    <div class="message message-system">
+                        <i class="fas fa-info-circle"></i> در حال اتصال به سرور...
+                    </div>
+                </div>
+                
+                <div class="chat-input-container">
+                    <input type="text" id="messageInput" class="chat-input" placeholder="پیام خود را بنویسید..." maxlength="500">
+                    <button id="sendButton" class="send-btn">ارسال</button>
+                </div>
+            </section>
+        </div>
+        
+        <section class="connection-section">
+            <h2><i class="fas fa-plug"></i> اتصال</h2>
+            <div class="connection-controls">
+                <div class="id-container">
+                    <label for="localId">ID شما:</label>
+                    <input type="text" id="localId" class="connection-id" readonly>
+                    <button id="copyIdButton" class="action-btn copy">کپی</button>
+                </div>
+                
+                <div class="id-container">
+                    <label for="remoteIdInput">ID کاربر مقابل:</label>
+                    <input type="text" id="remoteIdInput" class="connection-id" placeholder="ID را وارد کنید">
+                    <button id="connectButton" class="action-btn">اتصال</button>
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="createIdButton" class="action-btn">
+                        <i class="fas fa-redo"></i> ID جدید
+                    </button>
+                    <button id="testSignalButton" class="action-btn">
+                        <i class="fas fa-bolt"></i> تست سرور
+                    </button>
+                </div>
+            </div>
+            
+            <div id="connectionStatus" class="status disconnected">
+                <i class="fas fa-exclamation-circle"></i> در حال اتصال به سرور...
+            </div>
+        </section>
+        
+        <section class="instructions">
+            <h3><i class="fas fa-graduation-cap"></i> راهنمای استفاده</h3>
+            <ol>
+                <li>ID خود را با شخص مقابل به اشتراک بگذارید</li>
+                <li>ID شخص مقابل را در کادر مربوطه وارد کنید</li>
+                <li>روی دکمه "اتصال" کلیک کنید</li>
+                <li>منتظر بمانید تا کاربر مقابل تماس را بپذیرد</li>
+            </ol>
+        </section>
+        
+        <footer>
+            <p>این برنامه از WebRTC و سرور سیگنالینگ واقعی استفاده می‌کند.</p>
+            <p>قابل استقرار بر روی Vercel | طراحی شده برای مرورگرهای مدرن</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
